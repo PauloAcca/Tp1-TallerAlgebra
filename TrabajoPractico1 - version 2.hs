@@ -53,3 +53,12 @@ mostrarPseudoprimo k m | k == 0 = m
 
 kesimo2y3Pseudoprimo :: Integer -> Integer -- EJERCICIO 4
 kesimo2y3Pseudoprimo m = mostrarPseudoprimo m 1
+
+pseudoPrimidadDescendiente :: Int -> Int -> Bool -- Revisa si n es pseudoprimo para todo número entre 1 y k
+pseudoPrimidadDescendiente n 1 = True
+pseudoPrimidadDescendiente n k | esPseudoprimo k n = pseudoPrimidadDescendiente n (k-1)
+                               | not sonCoprimos n k = pseudoPrimidadDescendiente n (k-1)
+                               | sonCoprimos k n && not esPseudoprimo k n = False
+
+esCarmichael :: Int -> Bool -- EJERCICIO 5
+esCarmichael n = pseudoPrimidadDescendiente n (n-1)
