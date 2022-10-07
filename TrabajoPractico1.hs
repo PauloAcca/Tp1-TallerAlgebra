@@ -55,8 +55,9 @@ kesimo2y3Pseudoprimo :: Integer -> Integer -- EJERCICIO 4
 kesimo2y3Pseudoprimo m = mostrarPseudoprimo m 1
 
 pseudoPrimidadDescendiente :: Integer -> Integer -> Bool -- Revisa si n es pseudoprimo para todo número entre 1 y k
-pseudoPrimidadDescendiente n 1 = True
-pseudoPrimidadDescendiente n k | esPseudoprimo k n == True = pseudoPrimidadDescendiente n (k-1)
+pseudoPrimidadDescendiente n k | n <= 2 = False
+                               | k == 1 = True
+                               | esPseudoprimo k n == True = pseudoPrimidadDescendiente n (k-1)
                                | sonCoprimos n k == False = pseudoPrimidadDescendiente n (k-1)
                                | sonCoprimos k n == True && esPseudoprimo k n == False = False
 
