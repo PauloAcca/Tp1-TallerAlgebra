@@ -6,7 +6,6 @@ mayorDivisorDe n 1 = 1
 mayorDivisorDe n k | mod n k == 0 = k
                    | otherwise = mayorDivisorDe n (k-1)
 
-mayorDivisor 1 = 1
 mayorDivisor n = mayorDivisorDe n (n-1) -- Mayor divisor omitiendo el n
 
 esPrimo :: Integer -> Bool -- Muestra si un numero es primo
@@ -54,3 +53,12 @@ mostrarPseudoprimo k m | k == 0 = m-1
 
 kesimo2y3Pseudoprimo :: Integer -> Integer -- EJERCICIO 4
 kesimo2y3Pseudoprimo m = mostrarPseudoprimo m 1
+
+pseudoPrimidadDescendiente :: Integer -> Integer -> Bool -- Revisa si n es pseudoprimo para todo número entre 1 y k
+pseudoPrimidadDescendiente n 1 = True
+pseudoPrimidadDescendiente n k | esPseudoprimo k n == True = pseudoPrimidadDescendiente n (k-1)
+                               | sonCoprimos n k == False = pseudoPrimidadDescendiente n (k-1)
+                               | sonCoprimos k n == True && esPseudoprimo k n == False = False
+
+esCarmichael :: Integer -> Bool -- EJERCICIO 5
+esCarmichael n = pseudoPrimidadDescendiente n (n-1)
