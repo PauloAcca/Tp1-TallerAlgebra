@@ -1,4 +1,6 @@
--- Trabajo Práctico 1
+-- López Ianoni Federico Javier
+-- Accardo Paulo
+-- Rolón Agustín Nicolás
 
 
 mayorDivisorDe :: Integer -> Integer -> Integer -- muestra los divisores de manera descendente
@@ -33,10 +35,10 @@ es2Pseudoprimo :: Integer -> Bool -- EJERCICIO 2
 es2Pseudoprimo n = esPseudoprimo 2 n
 
 
-cantidad3Pseudoprimo :: Integer -> Integer -- EJERCICIO 3
-cantidad3Pseudoprimo 1 = 0
-cantidad3Pseudoprimo m | esPseudoprimo 3 m == True = cantidad3Pseudoprimo (m-1) + 1
-                       | otherwise = cantidad3Pseudoprimo (m-1) 
+cantidad3Pseudoprimos :: Integer -> Integer -- EJERCICIO 3
+cantidad3Pseudoprimos 1 = 0
+cantidad3Pseudoprimos m | esPseudoprimo 3 m == True = cantidad3Pseudoprimos (m-1) + 1
+                        | otherwise = cantidad3Pseudoprimos (m-1) 
 
 
 es3Pseudoprimo :: Integer -> Bool -- pseudonumeros de base 3
