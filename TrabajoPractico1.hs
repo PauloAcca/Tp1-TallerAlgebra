@@ -8,6 +8,8 @@ mayorDivisorDe n 1 = 1
 mayorDivisorDe n k | mod n k == 0 = k
                    | otherwise = mayorDivisorDe n (k-1)
 
+mayorDivisor :: Integer -> Integer
+mayorDivisor 1 = 1
 mayorDivisor n = mayorDivisorDe n (n-1) -- Mayor divisor omitiendo el n
 
 esPrimo :: Integer -> Bool -- Muestra si un numero es primo
@@ -27,7 +29,7 @@ sonCoprimos n p = comparacionDivisores n p n p
 
 pequeñoTeoremaFermat a p = a^(p-1) - 1 -- Formula base del pequeño teorema de Fermat
 
-esPseudoprimo :: Integer -> Integer -> Bool -- Muestra si un numero es pseudonumero
+esPseudoprimo :: Integer -> Integer -> Bool -- Muestra si un numero es pseudoprimo
 esPseudoprimo a p = (sonCoprimos a p && mod (pequeñoTeoremaFermat a p) p == 0) && esPrimo p == False
 
 
